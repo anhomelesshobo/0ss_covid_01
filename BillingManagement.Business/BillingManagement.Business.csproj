@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="CustomersDataService.cs" />
-    <Compile Remove="IDataService.cs" />
+    <ProjectReference Include="..\app_models\BillingManagement.Models.csproj" />
   </ItemGroup>
 
 </Project>

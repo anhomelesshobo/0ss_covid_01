@@ -1,13 +1,15 @@
-﻿<Window x:Class="Inventaire.MainWindow"
+﻿<Window x:Class="BillingManagement.UI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Inventaire"
+        xmlns:local="clr-namespace:BillingManagement.UI"
         mc:Ignorable="d"
         Title="Gestion de clients" Width="800" Height="500"
-        MinHeight="500" MinWidth="640"
-        DataContext="{Binding RelativeSource={RelativeSource self}}">
+        MinHeight="500" MinWidth="640">
+    <Window.CommandBindings>
+        <CommandBinding Command="New" CanExecute="CommonCommandBinding_CanExecute" />
+    </Window.CommandBindings>
     <DockPanel>
         <StackPanel DockPanel.Dock="Top">
             <Menu>
@@ -16,7 +18,7 @@
                     <MenuItem Header="_Sauvegarder"/>
                     <MenuItem Header="_Fermer"/>
                     <Separator/>
-                    <MenuItem Header="_Nouveau client" Click="CustomerNew_Click"/>
+                    <MenuItem Header="_Nouveau" />
                     <Separator/>
                     <MenuItem Header="_Quitter"/>
                 </MenuItem>
@@ -31,6 +33,11 @@
                     <MenuItem Header="Fonction 3"/>
                 </MenuItem>
             </Menu>
+            <ToolBarTray DockPanel.Dock="Top">
+                <ToolBar>
+                    <Button Command="New" Content="Nouveau" />
+                </ToolBar>
+            </ToolBarTray>
         </StackPanel>
         <StatusBar DockPanel.Dock="Bottom" Height="25">
             <TextBlock Text="Client sélectionné : " />
@@ -48,7 +55,7 @@
                 </Grid.RowDefinitions>
                 <StackPanel Margin="6" Orientation="Horizontal" x:Name="spHeader">
                     <TextBlock Text="Liste des clients" />
-                    <Button Content="Nouveau client" Margin="6 0" Click="CustomerNew_Click"/>
+                    <Button Content="Nouveau" Margin="6 0"  />
                 </StackPanel>
                 <ListView Grid.Row="1" ItemsSource="{Binding Customers}"
                           SelectedItem="{Binding SelectedCustomer}"
@@ -113,7 +120,7 @@
 
                 </StackPanel>
                 <StackPanel Grid.Row="6" Grid.Column="2" Margin="6">
-                    <Button Content="Supprimer client" Click="CustomerDelete_Click"/>
+                    <Button Content="Supprimer client"/>
                 </StackPanel>
                 <Image Margin="6" Grid.Row="7"
                        Source="{Binding SelectedCustomer.PicturePath}"
