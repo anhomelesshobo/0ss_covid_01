@@ -1,6 +1,5 @@
-﻿using BillingManagement.Models;
-using BillingManagement.UI.ViewModels;
-using System.Diagnostics;
+﻿using BillingManagement.UI.ViewModels;
+using BillingManagement.Models;
 using System.Windows;
 using System.Windows.Input;
 
@@ -11,19 +10,23 @@ namespace BillingManagement.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+
+       public CustomersViewModels viewModel;
         public MainWindow(CustomersViewModels vm)
         {
             InitializeComponent();
-
-            DataContext = vm;
+            DataContext = new CustomersViewModels();
+            viewModel = vm;
         }
-        private void CommonCommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        private void Nouveau_clients(object sender, RoutedEventArgs e)
         {
-            e.CanExecute = true;
-
-           
-            new CustomersViewModels = 
+            Customer temp = new Customer() { Name = "new", LastName = "customer", Address = "", City = "", Province = "", PostalCode = "", PicturePath = "images/user.png", ContactInfo = "" };
+            viewModel.Customers.Add(temp);
+            lvCustomers.ItemsSource = viewModel.Customers;
+            lvCustomers.SelectedItem = temp;
         }
+
+
+     
     }
 }

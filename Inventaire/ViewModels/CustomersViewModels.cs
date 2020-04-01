@@ -1,6 +1,7 @@
 ﻿using BillingManagement.Business;
 using BillingManagement.Models;
 using System.Collections.ObjectModel;
+using BillingManagement.UI;
 using System.Diagnostics;
 
 namespace BillingManagement.UI.ViewModels
@@ -40,7 +41,7 @@ namespace BillingManagement.UI.ViewModels
         private void InitValues()
         {
             Customers = new ObservableCollection<Customer>(customersDataService.GetAll());
-            Debug.WriteLine(Customers.Count);
+            
         }
     }
 }

@@ -6,7 +6,7 @@ namespace BillingManagement.Business
 {
     interface IDataService<T>
     {
-        IEnumerable<T> GetAll();
+       public IEnumerable<T> GetAll();
     }
 
 

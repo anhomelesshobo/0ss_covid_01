@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
+
 namespace BillingManagement.UI.ViewModels
 {
     public class BaseViewModels : INotifyPropertyChanged
