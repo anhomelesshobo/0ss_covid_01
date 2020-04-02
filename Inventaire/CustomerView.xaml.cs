@@ -18,7 +18,8 @@ namespace BillingManagement.UI
             DataContext = new CustomersViewModels();
             viewModel = vm;
         }
-        private void Nouveau_clients(object sender, RoutedEventArgs e)
+
+        private void NewCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             Customer temp = new Customer() { Name = "new", LastName = "customer", Address = "", City = "", Province = "", PostalCode = "", PicturePath = "images/user.png", ContactInfo = "" };
             viewModel.Customers.Add(temp);
@@ -26,7 +27,9 @@ namespace BillingManagement.UI
             lvCustomers.SelectedItem = temp;
         }
 
-
-     
+        private void NewCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
     }
 }
