@@ -9,6 +9,7 @@
         MinHeight="500" MinWidth="640">
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.New"  Executed="NewCommand_Executed" CanExecute="NewCommand_CanExecute" />
+        <CommandBinding Command="ApplicationCommands.Close"  Executed="CloseCommand_Executed" CanExecute="CloseCommand_CanExecute" />
     </Window.CommandBindings>
     <DockPanel>
         <StackPanel DockPanel.Dock="Top">
@@ -20,7 +21,7 @@
                     <Separator/>
                     <MenuItem Header="_Nouveau"  Command="ApplicationCommands.New" />
                     <Separator/>
-                    <MenuItem Header="_Quitter"/>
+                    <MenuItem Header="_Quitter"  Command="ApplicationCommands.Close"/>
                 </MenuItem>
                 <MenuItem Header="_Édition">
                     <MenuItem Header="Couper..."/>
@@ -36,6 +37,7 @@
             <ToolBarTray DockPanel.Dock="Top">
                 <ToolBar>
                     <Button Content="Nouveau" Command="ApplicationCommands.New"/>
+                    <Button Content="Quitter" Command="ApplicationCommands.Close"/>
                 </ToolBar>
             </ToolBarTray>
         </StackPanel>
