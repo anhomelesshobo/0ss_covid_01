@@ -89,6 +89,8 @@ namespace BillingManagement.Models
 
         public ObservableCollection<ContactInfo> ContactInfos { get; set; }
 
+        public ObservableCollection<Invoice> InvoiceCustomer { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName]string propertyName = null)

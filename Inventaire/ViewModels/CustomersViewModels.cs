@@ -9,6 +9,7 @@ namespace BillingManagement.UI.ViewModels
    public class CustomersViewModels : BaseViewModels
     {
         CustomersDataService customersDataService = new CustomersDataService();
+        
 
         private ObservableCollection<Customer> customers;
         private Customer selectedCustomer;
@@ -41,6 +42,7 @@ namespace BillingManagement.UI.ViewModels
         private void InitValues()
         {
             Customers = new ObservableCollection<Customer>(customersDataService.GetAll());
+            InvoicesDataService invoicesdataservice = new InvoicesDataService(Customers);
             
         }
     }
