@@ -1,4 +1,5 @@
-﻿using BillingManagement.UI.ViewModels;
+﻿using BillingManagement.UI.View;
+using BillingManagement.UI.ViewModels;
 using System.Windows;
 
 namespace BillingManagement.UI
@@ -13,8 +14,8 @@ namespace BillingManagement.UI
         public App()
         {
             CustomersViewModels vm = new CustomersViewModels();
-
             _wnd = new MainWindow(vm);
+
 
             _wnd.Show();
         }

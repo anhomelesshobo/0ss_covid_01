@@ -2,6 +2,7 @@
 using BillingManagement.Models;
 using System.Windows;
 using System.Windows.Input;
+using BillingManagement.UI.View;
 
 namespace BillingManagement.UI
 {
@@ -40,6 +41,16 @@ namespace BillingManagement.UI
         private void CloseCommand_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
+        }
+
+        private void InvoicesViewChange(object sender, RoutedEventArgs e)
+        {
+            DataContext = new InvoicesViewModels();
+        }
+
+        private void CustomersViewChange(object sender, RoutedEventArgs e)
+        {
+            DataContext = new CustomersViewModels();
         }
     }
 }

@@ -1,30 +1,28 @@
 ﻿using BillingManagement.Business;
 using BillingManagement.Models;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using BillingManagement.UI;
-using System.Diagnostics;
+using System.Text;
 
 namespace BillingManagement.UI.ViewModels
 {
-   public class CustomersViewModels : BaseViewModels
+    public class InvoicesViewModels : BaseViewModels
     {
         CustomersDataService customersDataService = new CustomersDataService();
-        
 
-        private ObservableCollection<Customer> customers;
+        private ObservableCollection<Customer> invoicesustomers;
         private Customer selectedCustomer;
 
-        public ObservableCollection<Customer> Customers
+        public ObservableCollection<Customer> InvoicesCustomers
         {
-            get => customers;
+            get => invoicesustomers;
             private set
             {
-                customers = value;
+                invoicesustomers = value;
                 OnPropertyChanged();
             }
         }
-
-
 
         public Customer SelectedCustomer
         {
@@ -35,17 +33,17 @@ namespace BillingManagement.UI.ViewModels
                 OnPropertyChanged();
             }
         }
-
-        public CustomersViewModels()
+        public InvoicesViewModels()
         {
             InitValues();
         }
 
         private void InitValues()
         {
-            Customers = new ObservableCollection<Customer>(customersDataService.GetAll());
-            InvoicesDataService invoicesdataservice = new InvoicesDataService(Customers);
+            InvoicesCustomers = new ObservableCollection<Customer>(customersDataService.GetAll());
             
+
         }
+
     }
 }
